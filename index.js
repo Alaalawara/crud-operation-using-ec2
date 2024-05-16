@@ -91,6 +91,6 @@ app.delete('/books/:id', async (req, res) => {
 
 db.sequelize.sync().then((req) => {
     app.listen(3001, () => {
-        console.log('server started');
+        console.log('server started, 3001');
     })
 })
