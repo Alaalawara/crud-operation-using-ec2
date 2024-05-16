@@ -6,7 +6,7 @@ app.use(express.urlencoded({
     extended: false
 }));
 
-app.get('/getcll',async (req,res) => {
+app.get('/getall',async (req,res) => {
     console.log('API is up');
     const book=await db.Book.findAll({})
     console.log(book)
@@ -17,10 +17,9 @@ app.get('/getcll',async (req,res) => {
 app.post('/books', async (req, res) => {
     try{
         const data = req.body;
-    console.log(data);
+        console.log(data);
         const book = await db.Book.bulkCreate(data);
-        console.log(books);
-        res.send("msg");
+        res.send(book);
     }
     catch (err) {
         res.send(err);
